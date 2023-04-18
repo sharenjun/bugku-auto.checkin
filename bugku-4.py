@@ -16,12 +16,12 @@ class all():
     def captcha(self):
         cap=r.get(url2).content
         cap=binascii.b2a_hex(cap)
-        with open("C:\\Users\\D1oMg\\Desktop\\1.png","wb") as f:
+        with open("./code","wb") as f:
             bin=binascii.unhexlify(cap)
             f.write(bin)
             f.close()
         #读取文件输出验证码
-        with open("C:\\Users\\D1oMg\\Desktop\\1.png","rb") as k:
+        with open("./code","rb") as k:
             read=k.read()
         res=ocr.classification(read)
         print(res)
@@ -32,8 +32,6 @@ class all():
         }
         login=r.post(url=url3,data=data,headers=headers)
         text=login.text
-        # code=text.split(",")[0].split(":")[1]
-        # success=text.split(",")[1].split(":")[1]
         if(text==0):
             self.captcha()
         else:
