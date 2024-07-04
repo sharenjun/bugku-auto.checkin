@@ -26,7 +26,7 @@ class all():
         res=ocr.classification(read)
         print(res)
         data={"username":"账号",
-        "password":"密码",
+        "password":"密码",//testpassword:xfxdc!bt%BUg2P
         "vcode":"%s"%res,
         "autologin":"1"
         }
